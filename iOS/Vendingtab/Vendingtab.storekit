@@ -1,0 +1,27 @@
+{
+  "identifier": "storekit",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "2.99",
+      "familyShareable": false,
+      "internalID": "prod1",
+      "localizations": [
+        {
+          "description": "Category tagging and weekly spend alerts",
+          "displayName": "Vendingtab Pro",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "vendingtab_pro",
+      "referenceName": "Vendingtab Pro",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {},
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}

@@ -1,0 +1,75 @@
+name: Vendingtab
+options:
+  bundleIdPrefix: com.shimondeitel.vendingtab
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: "W7Q885Q59C"
+    CODE_SIGN_STYLE: Automatic
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: "YES"
+targets:
+  Vendingtab:
+    type: application
+    platform: iOS
+    sources:
+      - path: Vendingtab
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.vendingtab
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: Vendingtab/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: "YES"
+        GENERATE_INFOPLIST_FILE: "NO"
+  VendingtabTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: VendingtabTests
+      - path: Vendingtab.storekit
+    dependencies:
+      - target: Vendingtab
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.vendingtab.tests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+  VendingtabUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: VendingtabUITests
+    dependencies:
+      - target: Vendingtab
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.vendingtab.uitests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+schemes:
+  Vendingtab:
+    build:
+      targets:
+        Vendingtab: all
+        VendingtabTests: [test]
+        VendingtabUITests: [test]
+    run:
+      config: Debug
+      storeKitConfiguration: Vendingtab.storekit
+    test:
+      config: Debug
+      storeKitConfiguration: Vendingtab.storekit
+      targets:
+        - VendingtabTests
+        - VendingtabUITests
+    archive:
+      config: Release
